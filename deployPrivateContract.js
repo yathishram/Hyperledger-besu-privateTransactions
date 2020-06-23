@@ -47,9 +47,35 @@ const getPrivateContractAddress = async (transactionHash) => {
   return transactionRecepit.contractAddress;
 };
 
+const getTodoCount = (contractAddress) => {
+  const functionAbi = EventEmitterAbi.find((e) => {
+    return e.name === "todoCount";
+  });
+
+  const functionCall = {
+    to: contractAddress,
+    data: functionAbi.signature,
+    privateFrom: orion.node1.publicKey,
+    privateFor: [orion.node2.publicKey],
+    privateKey: besu.node1.privateKey,
+  };
+
+  return web3.eea
+    .sendRawTransaction(functionCall)
+    .then((transactionHash) => {
+      return web3.priv.getTransactionReceipt(transactionHash, orion.node1.publicKey);
+    })
+    .then((result) => {
+      console.log("Get Message:", web3.eth.abi.decodeParameters(functionAbi.outputs, result.output));
+      return result.output;
+    });
+};
+
 module.exports = async () => {
   const transactionHash = await createPrivateContract();
-  await getPrivateContractAddress(transactionHash);
+  getPrivateContractAddress(transactionHash).then((contractAddress) => {
+    return getTodoCount(contractAddress);
+  });
 };
 
 if (require.main === module) {
