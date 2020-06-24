@@ -7,7 +7,7 @@ const EventEmitterAbi = require("./client/src/build/TodoContract.json");
 //Keys
 const { orion, besu } = require("./utils/keys.js");
 //Get the bytecode
-const binary = fs.readFileSync(path.resolve(__dirname, "./client/build/TodoContract.bin"));
+const binary = fs.readFileSync(path.resolve(__dirname, "./client/src/build/TodoContract.bin"));
 //Setting the web3 connection
 const web3 = new EEAClient(new Web3(besu.node1.url), 2018);
 //creating instance of contract
