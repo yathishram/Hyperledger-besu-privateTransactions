@@ -13,7 +13,7 @@ const web3 = new EEAClient(new Web3(besu.node1.url), 2018);
 //creating instance of contract
 new web3.eth.Contract(EventEmitterAbi);
 
-const addressPath = path.resolve(__dirname, "client", "address");
+const addressPath = path.resolve(__dirname, "client", "src", "address");
 fs.removeSync(addressPath);
 
 //Creating a contract object to deploy

@@ -4,7 +4,7 @@ const solc = require("solc");
 
 function compile(dir, file) {
   const fileToCompile = path.join(dir, file);
-  const buildPath = path.resolve(__dirname, "client", "build");
+  const buildPath = path.resolve(__dirname, "client", "src", "build");
   fs.removeSync(buildPath);
   console.log("Compiling contract:", fileToCompile);
   //get the source code
