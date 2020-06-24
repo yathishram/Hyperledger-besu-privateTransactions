@@ -3,7 +3,7 @@ const path = require("path");
 const Web3 = require("web3");
 const EEAClient = require("web3-eea");
 //Get the ABI
-const EventEmitterAbi = require("./client/build/TodoContract.json");
+const EventEmitterAbi = require("./client/src/build/TodoContract.json");
 //Keys
 const { orion, besu } = require("./utils/keys.js");
 //Get the bytecode
