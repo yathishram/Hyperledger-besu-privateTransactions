@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "fs-extra": "^9.0.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "solc": "^0.6.10",
     "web3": "^1.2.9",
     "web3-eea": "^0.9.0"
